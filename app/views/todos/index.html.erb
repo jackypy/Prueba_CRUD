@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>ToDo List</h1>
+  <%= link_to 'Crear ToDo', todos_new_path %>
+    <% @todos.each do |todo| %>
+      <div class="well" style="background: green">
+        <h1><%= todo.description %></h1>
+         <p><%= todo.completed ? 'Completado' : 'No Completado' %></p>
+      </div>
+      <%= link_to 'show', todo_path(todo.id) %>
+      <%= link_to 'edit', edit_path(todo.id) %>
+      <%= link_to 'destroy', todo, method: :delete %>
+      <%= link_to 'completed', completed_path(todo.id) %>
+   <% end %>
+</div>
